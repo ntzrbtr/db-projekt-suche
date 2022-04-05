@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gcloud functions deploy db-projekt-suche --project db-projekt-346217 --trigger-http --runtime nodejs16 --region europe-west3 --entry-point search --allow-unauthenticated",
+    "deploy": "gcloud functions deploy db-projekt-suche --project db-projekt-346217 --trigger-http --runtime nodejs16 --region europe-west3 --entry-point search --allow-unauthenticated --env-vars-file=.env.yaml",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },
