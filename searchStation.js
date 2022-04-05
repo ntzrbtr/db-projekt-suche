@@ -1,3 +1,19 @@
+const sheets = require('./sheets')
+
+async function getStations() {
+  const spreadsheet = await sheets.spreadsheets.get({
+    spreadsheetId: process.env.SPREADSHEET_ID,
+  })
+  return spreadsheet.data.sheets.map((sheet) => sheet.properties.title)
+}
+
 module.exports = async function searchStation(term) {
-  return [term]
+  console.log('Looking for station', term)
+
+  const stations = await getStations()
+  const result = stations.filter((name) =>
+    name.toLowerCase().includes(term.toLowerCase())
+  )
+
+  return result
 }
