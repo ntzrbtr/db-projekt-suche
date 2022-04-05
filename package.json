@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gcloud functions deploy db-projekt-suche --project db-projekt-346217 --trigger-http --runtime nodejs16 --region europe-west3 --entry-point search --allow-unauthenticated --env-vars-file=.env.yaml",
+    "deploy": "dotenv -- cross-var gcloud functions deploy %FUNCTION_NAME% --project %FUNCTION_PROJECT% --trigger-http --runtime nodejs16 --region %FUNCTION_REGION% --entry-point search --allow-unauthenticated --env-vars-file=.env.yaml",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },
@@ -17,7 +17,9 @@
     "googleapis": "^100.0.0"
   },
   "devDependencies": {
+    "cross-var": "^1.1.0",
     "dotenv": "^16.0.0",
+    "dotenv-cli": "^5.1.0",
     "eslint": "^8.6.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.3.0",
