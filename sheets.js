@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 const { google } = require('googleapis')
 
 const sheets = google.sheets({
