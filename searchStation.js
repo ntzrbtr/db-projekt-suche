@@ -10,7 +10,7 @@ async function getStations() {
 }
 
 module.exports = async function searchStation(term) {
-  console.log('Looking for station', term)
+  console.log(`Looking for station by term "${term}"`)
 
   const stations = await getStations()
   const result = stations.filter((name) =>
