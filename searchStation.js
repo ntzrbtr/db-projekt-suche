@@ -1,14 +1,26 @@
 const sheets = require('./sheets')
 
+/**
+ * Get station sheets.
+ *
+ * @returns {Array.Resource$Spreadsheets$Sheets}
+ */
 async function getStations() {
   const spreadsheet = await sheets.spreadsheets.get({
     spreadsheetId: process.env.SPREADSHEET_ID,
   })
+
   return spreadsheet.data.sheets
     .filter((sheet) => sheet.properties.title.startsWith('Bahnhof'))
     .map((sheet) => sheet.properties.title)
 }
 
+/**
+ * Search for station by term.
+ *
+ * @param {string} term
+ * @returns {Array.string}
+ */
 module.exports = async function searchStation(term) {
   console.log(`Looking for station by term "${term}"`)
 
