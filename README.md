@@ -40,10 +40,8 @@ Now you can use `npm run deploy` to deploy the function.
 
 ## Usage
 
-Call the function with the following parameters:
-
-- `type`: the type of entity to search (e.g. `station`)
-- `term`: the search term to use (e.g. `München`)
+- `https://my-function/?type=station&term=<term>` gets a list of stations for term `term`
+- `https://my-function/?type=poi&station=<station>&term=<term>` gets a list of pois for term `term` at station `station`
 
 If search can be executed, you get a JSON response object with two keys:
 
