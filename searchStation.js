@@ -1,4 +1,4 @@
-const sheets = require('./sheets')
+const sheetsApi = require('./sheetsApi')
 
 /**
  * Get station sheets.
@@ -6,7 +6,7 @@ const sheets = require('./sheets')
  * @returns {Array.Resource$Spreadsheets$Sheets}
  */
 async function getStations() {
-  const spreadsheet = await sheets.spreadsheets.get({
+  const spreadsheet = await sheetsApi.spreadsheets.get({
     spreadsheetId: process.env.SPREADSHEET_ID,
   })
 
