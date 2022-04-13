@@ -12,7 +12,7 @@ async function getStations() {
 
   return spreadsheet.data.sheets
     .filter((sheet) => sheet.properties.title.startsWith('Bahnhof'))
-    .map((sheet) => sheet.properties.title)
+    .map((sheet) => sheet.properties.title.replace(/^Bahnhof /, ''))
 }
 
 /**
